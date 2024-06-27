@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -26,7 +26,44 @@ function App() {
     return txt.value;
 } 
 
-  console.log(nuro)
+ 
+
+  useEffect(()=>{
+     let isFull = true;
+     let volos = []
+     correct.forEach((a)=>{
+        volos.push(Object.values(a)[0])
+     })
+
+     volos.forEach((v)=>{
+        if(v === ""){
+          isFull = false;
+        }
+     })
+
+     console.log(isFull)
+     console.log(volos)
+     
+     if(isFull){
+      let btne = document.getElementById('checkin')
+      if(btne){
+        console.log(btne)
+        btne.disabled = false;
+        btne.style.opacity  = '100%'
+        btne.addEventListener("click", function() {
+          setFinished(true)
+          setcheck(true)
+        });
+      }
+     }
+     
+     
+      
+     
+
+     
+
+  }, [correct])
 
 
   function shuffleArray(array) {
@@ -51,7 +88,7 @@ function App() {
         let correct_answers = []
         data.results.map((res)=>{
 
-            console.log(res.incorrect_answers)
+            
             let core = {}
             let correct = decodeHtml(res.correct_answer);
             let incorrect = res.incorrect_answers.map((h)=>{
@@ -85,7 +122,8 @@ function App() {
      return <Question nuro={setNuro} correct_answers = {q.correct_answers} correct={correct} setCorrect={setCorrect} finish = {finished} shuffled={q.shuffled} check={check} content = {q}/>
     })}
 
-    {finished === false? <button onClick={()=>{
+    {finished === false? <button id="checkin" style={{opacity: '50%'}} disabled={true} onClick={()=>{
+      
       setFinished(true)
       setcheck(true)}} className="btn-start check">Check answers
     </button>
