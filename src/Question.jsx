@@ -74,7 +74,7 @@ function Question (props) {
         <div className="btns">
             {props.shuffled.map((a, index)=>{
                 
-                return <button disabled={props.check} style={a=== selected && !props.check ? { backgroundColor: '#D6DBF5' } : props.check? a===selected? a===props.content.correct? {backgroundColor:'#94D7A2'} : {backgroundColor: '#F8BCBC', opacity: "50%"}:a===props.content.correct? {backgroundColor: "#94D7A2"} : {opacity: "50%"} : {}} onClick={() => {
+                return <button  disabled={props.check} style={a=== selected && !props.check ? { backgroundColor: '#D6DBF5' } : props.check? a===selected? a===props.content.correct? {backgroundColor:'#94D7A2'} : {backgroundColor: '#F8BCBC', opacity: "50%"}:a===props.content.correct? {backgroundColor: "#94D7A2"} : {opacity: "50%"} : {}} onClick={() => {
                     
                     
                     
