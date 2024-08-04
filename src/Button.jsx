@@ -29,7 +29,7 @@ function Button(props)  {
   //console.log(convo)
 
   return (
-    <button className="" >Button {convo}</button>
+    <button className="" >COOL {convo}</button>
   )
 }
 
